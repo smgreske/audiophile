@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon';
+import Logo from './Header/Logo.astro';
+import MobileNav from './Header/MobileNav.astro';
+import Navigation from './Header/Navigation.astro';
+import NavToggle from './Header/NavToggle.astro';
+import Cart from './Header/Cart.astro';
+
+const navArray = [
+  { name: 'home', path: '/' },
+  { name: 'headphones', path: '/headphones' },
+  { name: 'speakers', path: '/speakers' },
+  { name: 'earphones', path: '/earphones' },
+];
+---
+
+<header class='ResponsiveMargins | absolute w-full z-10 py-8'>
+  <div class='MaxCenter FlexBetween'>
+
+    <div class='md:hidden'>
+      <NavToggle>
+        <MobileNav navArray={navArray} />
+      </NavToggle>
+    </div>
+
+    <div class='flex items-center | gap-10 lg:gap-[200px]'>
+      <Logo />
+      <div class='hidden md:contents'>
+        <NavToggle>
+          <MobileNav navArray={navArray} />
+        </NavToggle>
+      </div>
+    </div>
+
+    <Navigation navArray={navArray} />
+
+    <Cart/>
+
+  </div>
+</header>

@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Custom Properties ------------------------------ */
+  html {
+    --breakpointTablet: 600px;
+    --breakpointDesktop: 900px;
+
+    --marginMobile: 1.5rem;
+    --marginTablet: 2.5rem;
+    --marginDesktop: 2.5rem;
+
+    --maxWidth: 1110px;
+    --fontPrimary: "Manrope";
+
+    /* --clrThemeone: #XXXXX;
+    --clrThemetwo: #XXXXX;
+    --clrThemethree: #XXXXX; */
+  }
+  html[data-theme="one"] {
+    --neutral-1: #ffffff;
+    --neutral-2: #fafafa;
+    --neutral-3: #f1f1f1;
+    --neutral-4: #101010;
+    --neutral-5: #000000;
+    --color-1: #fbaf85;
+    --color-2: #d87d4a;
+    --extra-1: #1f1f1f;
+
+    --clrDefault: var(--neutral-5);
+    --clrBackground: var(--neutral-2);
+    --clrHover: var(--color-1);
+  }
+
+  /* Base Styles ------------------------------------- */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--clrDefault);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--clrBackground);
+    color: var(--clrDefault);
+    font-family: var(--fontPrimary);
+    line-height: 1.5;
+    margin: 0;
+  }
+  a {
+    color: var(--neutral-1);
+    text-decoration: none;
+  }
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+  :disabled {
+    cursor: none;
+  }
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-transform: uppercase;
+    margin: 0;
+    font-family: var(--fontPrimary);
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  img {
+    display:block;
+    height: auto;
+    width: 100%;
+  }
+  p {
+    margin: 0;
+  }
+  picture {
+    display: block;
+  }
+  svg {
+    display:block;
+    fill: var(--clrDefault);
+  }
+  video {
+    height: auto;
+    width: 100%;
+  }
+  [hidden] {
+    display: none;
+  }
+  /* img {@apply w-full h-auto} */
+  /* ol, ul, menu {@apply list-none m-0 p-0} */
+
+  /* Markdown Styles ---------------------------------- */
+
+  [data-type="markdown"] > h1 {
+    font-size: 2rem;
+  }
+  [data-type="markdown"] > h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@layer components {
+  /* Utility ------------------------------------------- */
+  .AbsoluteCenter {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+  }
+  .FlexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .FlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .MaxCenter {
+    max-width: var(--maxWidth);
+    margin: auto;
+  }
+
+  .ResponsiveMargins {
+    @apply px-mobile md:px-tablet lg:px-desktop;
+  }
+}

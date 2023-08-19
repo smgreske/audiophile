@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon'
+
+const socialArray = [
+    { icon: 'tiktok', path: '' },
+    { icon: 'instagram', path: 'scottgreske' },
+    { icon: 'facebook', path: 'scott.greske' },]
+---
+
+<nav class='flex gap-XXXXX'>
+  {socialArray.map((current) => (
+    <a href={`http://${current.icon}.com/${current.path}`}>
+      <Icon class='w-6 hover:scale-XXXXX transition-all hover:fill-clr-hover'  
+        name={current.icon} />
+    </a>
+  ))}    
+</nav>

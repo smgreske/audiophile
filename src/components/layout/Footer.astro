@@ -1,0 +1,43 @@
+---
+import Copyright from './Footer/Copyright.astro';
+import Logo from './Footer/Logo.astro';
+import Navigation from './Footer/Navigation.astro';
+import SocialNav from './Footer/SocialNav.astro';
+
+const navArray = [
+  { name: 'home', path: '/' },
+  { name: 'headphones', path: '/headphones' },
+  { name: 'speakers', path: '/speakers' },
+  { name: 'earphones', path: '/earphones' },
+];
+
+const socialArray = [
+  { icon: 'tiktok', path: '' },
+  { icon: 'instagram', path: 'scottgreske' },
+  { icon: 'facebook', path: 'scott.greske' },
+];
+---
+
+<footer class='ResponsiveMargins | pb-9 md:pb-12 | bg-clr-n4 text-clr-n1 text-center md:text-start'>
+  <div class='MaxCenter | flex flex-col items-center md:items-start'>
+    <div class='w-24 | mb-12 md:mb-14 lg:mb-[72px] | bg-clr-2 h-1'></div>
+
+    <div class='lg:flex lg:justify-between | mb-12 md:mb-8 lg:mb-9 | lg:w-full'>
+      <Logo />
+      <Navigation navArray={navArray} />
+    </div>
+
+    <p class='mb-12 md:mb-20 lg:mb-[56px] | lg:max-w-[540px] | text-15 font-medium leading-6 opacity-50'>
+      Audiophile is an all in one stop to fulfill your audio needs. We're a
+      small team of music lovers and sound specialists who are devoted to
+      helping you get the most out of personal audio. Come and visit our demo
+      facility - we’re open 7 days a week.
+    </p>
+
+    <div class='flex flex-col items-center md:flex-row md:justify-between | w-full'>
+      <Copyright />
+      <SocialNav socialArray={socialArray} />
+    </div>
+
+  </div>
+</footer>

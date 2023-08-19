@@ -1,0 +1,15 @@
+---
+import MainLayout from 'src/MainLayout.astro';
+import HeroSection from 'components/home/HeroSection.astro';
+import Categories from 'components/common/Categories.astro';
+import BestAudioGear from 'components/common/BestAudioGear.astro';
+import ResponsiveContainer from 'src/_component-library/ResponsiveContainer.astro';
+---
+
+<MainLayout pageTitle='Home Page'>
+  <HeroSection />
+  <ResponsiveContainer>
+    <Categories />
+    <BestAudioGear />
+  </ResponsiveContainer>
+</MainLayout>
