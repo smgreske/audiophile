@@ -6,12 +6,10 @@
       "assets/*": ["src/assets/*"],
       "components/*": ["src/components/*"],
       "content/*": ["src/content/*"],
-      "css/*": ["src/css/*"],
+      "data/*": ["src/data/*"],
       "layouts/*": ["src/layouts/*"],
       "_test-page/*": ["src/_test-page/*"],
-      "layout-components/*": ["src/components/layout-components/*"],
-      "page-components/*": ["src/components/page-components/*"],
-      "image-components/*": ["src/components/image-components/*"]
+
     }
   },
   "extends": "astro/tsconfigs/strict"

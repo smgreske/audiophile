@@ -1,40 +1,36 @@
 ---
-import { Icon } from 'astro-icon';
-import Logo from './Header/Logo.astro';
-import MobileNav from './Header/MobileNav.astro';
-import Navigation from './Header/Navigation.astro';
-import NavToggle from './Header/NavToggle.astro';
-import Cart from './Header/Cart.astro';
+import CartToggle from 'components/general/CartToggle.astro';
+import Navigation from '../general/Navigation.astro';
+import NavToggle from '../general/NavToggle.astro';
+import SvgLink from '../general/SvgLink.astro';
+import CartModal from 'components/general/CartModal.astro';
 
-const navArray = [
-  { name: 'home', path: '/' },
-  { name: 'headphones', path: '/headphones' },
-  { name: 'speakers', path: '/speakers' },
-  { name: 'earphones', path: '/earphones' },
-];
+const { headerType } = Astro.props
 ---
 
-<header class='ResponsiveMargins | absolute w-full z-10 py-8'>
+<header id='header' class=`ResponsiveMargins | py-32 ${
+  (headerType === 'overlay') ?'absolute w-full z-10' :' relative bg-clr-n5'}`> 
   <div class='MaxCenter FlexBetween'>
 
     <div class='md:hidden'>
       <NavToggle>
-        <MobileNav navArray={navArray} />
+        <Navigation name='mobile' />
       </NavToggle>
     </div>
 
-    <div class='flex items-center | gap-10 lg:gap-[200px]'>
-      <Logo />
+    <div class='flex items-center | gap-40 lg:gap-0'>
+      <SvgLink name='logoHeader'/>
       <div class='hidden md:contents'>
         <NavToggle>
-          <MobileNav navArray={navArray} />
+          <Navigation name='mobile' />
         </NavToggle>
       </div>
     </div>
 
-    <Navigation navArray={navArray} />
-
-    <Cart/>
+    <Navigation name='header'/>
+    <CartToggle>
+      <CartModal/>
+    </CartToggle>
 
   </div>
 </header>

@@ -1,0 +1,18 @@
+---
+import type { Other } from 'src/utilities'
+
+const { others } = Astro.props
+---
+
+<section class='grid grid-cols-1 md:grid-cols-3 || gap-64 md:gap-12 lg:gap-32 || mb-120 md:mb-92 lg:mb-190 || text-clr-n5'>
+
+  {others.map( (current:Other) => (
+    <div class='flex flex-col items-center min-h-165 lg:min-h-200 || relative || bg-clr-n3 rounded-md'>
+      <h2 class='mb-4 || text-15 lg:text-18 || mt-88 lg:mt-116'>
+        {current.name}
+      </h2>
+      <a class='flex gap-2' href={current.slug}>
+        <p class='font-bold opacity-50 text-clr-n5 hover:text-clr-2 hover:opacity-100'>see product</p>
+      </a>
+    </div>
+  ))}

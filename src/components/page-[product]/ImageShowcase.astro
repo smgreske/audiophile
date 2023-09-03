@@ -1,0 +1,28 @@
+---
+import PictureOpt from "components/general/PictureOpt.astro";
+
+const { slug } = Astro.props
+---
+
+<div class='flex flex-col md:flex-row gap-20 mb-120 lg:mb-160'>
+  <div >
+    <PictureOpt name={`galleryOne_${slug.replaceAll('-', '')}`}
+      alt='black headphones'
+      styles={{
+        picture:' rounded-lg overflow-hidden mb-20 md:mb-32',  
+        img:'object-cover h-full'}}/>
+
+    <PictureOpt name={`galleryTwo_${slug.replaceAll('-', '')}`}
+      alt='black headphones'
+      styles={{
+        picture:' rounded-lg overflow-hidden',  
+        img:'object-cover h-full'}}/>
+
+  </div>
+  <PictureOpt name={`galleryThree_${slug.replaceAll('-', '')}`}
+      alt='black headphones'
+      styles={{
+        picture:' rounded-lg overflow-hidden',  
+        img:'object-cover h-full'}}/>
+  </div>
+</div>

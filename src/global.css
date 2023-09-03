@@ -45,36 +45,36 @@
     border-color: var(--clrDefault);
   }
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
   body {
     background-color: var(--clrBackground);
     color: var(--clrDefault);
     font-family: var(--fontPrimary);
-    line-height: 1.5;
+    font-size: .9375rem;
+    font-weight: 500;
+    line-height: 1.7;
     margin: 0;
+    text-align: center;
+    @apply lg:text-start;
   }
   a {
+    transition: all 100ms linear;
+    width: fit-content;
+    display: block;
+    font-size: .8125rem;
+    font-weight: 700;
     color: var(--neutral-1);
     text-decoration: none;
+    text-transform: uppercase;
   }
-  button,
-  [role="button"] {
+  button {
     cursor: pointer;
   }
-  :disabled {
-    cursor: none;
+  button:disabled {
+    cursor: default;
   }
-  fieldset {
-    margin: 0;
-    padding: 0;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     margin: 0;
     font-family: var(--fontPrimary);
@@ -86,6 +86,10 @@
     height: auto;
     width: 100%;
   }
+  li, ol, ul  {
+    margin: 0;
+    padding: 0;
+  }
   p {
     margin: 0;
   }
@@ -96,15 +100,6 @@
     display:block;
     fill: var(--clrDefault);
   }
-  video {
-    height: auto;
-    width: 100%;
-  }
-  [hidden] {
-    display: none;
-  }
-  /* img {@apply w-full h-auto} */
-  /* ol, ul, menu {@apply list-none m-0 p-0} */
 
   /* Markdown Styles ---------------------------------- */
 
@@ -121,8 +116,22 @@
   .AbsoluteCenter {
     position: absolute;
     left: 50%;
-    translate: -50%;
+    top: 50%;
+    translate: -50%, -50%;
   }
+
+  .AbsoluteCenterHor {
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  .AbsoluteCenterVert {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+  }
+
   .FlexBetween {
     display: flex;
     justify-content: space-between;
@@ -138,7 +147,13 @@
     margin: auto;
   }
 
-  .ResponsiveMargins {
-    @apply px-mobile md:px-tablet lg:px-desktop;
-  }
+  .ResponsiveMargins {@apply px-[--marginMobile] md:px-[marginTablet] lg:px-[--marginDesktop];}
+  .SplitFlexMd {@apply flex flex-col md:flex-row}
+  .SplitFlexLg {@apply flex flex-col lg:flex-row}
+  .SplitGridMd {@apply grid md:grid-cols-2}
+  .SplitGridLg {@apply grid lg:grid-cols-2}
+
+  .ButtonStyle1 {@apply max-w-fit py-12 px-32 uppercase font-bold bg-clr-2 text-clr-n1 tracking-[1px] hover:bg-clr-hover;}
+  .ButtonStyle2 {@apply px-32 py-16 uppercase text-clr-n5 border tracking-[1px] hover:text-clr-n1 hover:bg-clr-n5;}
+  .TextStyle1 {@apply uppercase text-clr-1 text-14 tracking-[10px];}
 }
